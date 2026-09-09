@@ -1,9 +1,11 @@
-# Infinite Yield
+# Infinite Yield Plus Plus
 
 The best command line script for roblox.
+Also a BetterIY remaster.
 
-[![](https://dcbadge.limes.pink/api/server/https://discord.gg/78ZuWSq)](https://discord.gg/78ZuWSq)
+## Installation
 
+Paste this into your executor's code editor
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 ```
@@ -14,11 +16,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 
 ## Developers
 
-### Creator: [Edge](https://github.com/EdgeIY)
-### Developers: [Moon](https://github.com/LorekeeperZinnia), [Zwolf](https://github.com/luatsuki), [Sleaze](https://github.com/sleaze5), [Toon](https://github.com/Toon-arch), [Peyton](https://github.com/peyton2465), [ATP](https://github.com/ionizedparticle)
+### Creator: [Malrous](https://github.com/Malrous)
+### Original Script: [Malrous](https://github.com/EdgeIY/infiniteyield)
+### Original Developers: [Moon](https://github.com/LorekeeperZinnia), [Zwolf](https://github.com/luatsuki), [Sleaze](https://github.com/sleaze5), [Toon](https://github.com/Toon-arch), [Peyton](https://github.com/peyton2465), [ATP](https://github.com/ionizedparticle)
 
-## Usage
-You can learn how to use all the features of this script in [the wiki](https://github.com/EdgeIY/infiniteyield/wiki)!
-
-## Contributing
-There is no specific rules on contributing (as of now) just open a [pull request](https://github.com/EdgeIY/infiniteyield/pulls) and if it checks out we will merge it!
+## Differences
+New commands (vehiclespeed, multiiy, keepiy, etc)
