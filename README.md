@@ -2,6 +2,8 @@
 
 The best command line script for roblox.
 Also a BetterIY remaster.
+\n
+**Note**: This script is inspired by SirMeme's InfYield420Edition.
 
 ## Installation
 
