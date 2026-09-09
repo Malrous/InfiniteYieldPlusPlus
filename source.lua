@@ -10579,7 +10579,7 @@ addcmd("chillzdex", {"cdex"}, function(args, speaker)
 end)
 addcmd("explorer", {"dex"}, function(args, speaker)
     notify("Loading", "Hold on a sec")
-    loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
+    loadstring(game:HttpGet("https://github.com/Malrous/InfiniteYieldPlusPlus/raw/refs/heads/master/explorer.lua"))()
 end)
 
 addcmd("moondex", {"mdex"}, function(args, speaker)
