@@ -4477,7 +4477,8 @@ CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infi
 CMDs[#CMDs + 1] = {NAME = 'guiscale [number]', DESC = 'Changes the size of the gui. [number] accepts decimals and whole numbers. Min is 0.4 and Max is 2'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Opens the Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'oldconsole', DESC = 'Loads an old-themed Roblox console'}
-CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens Dex++ by Chillz'}
+CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens Vectron for IYPlusPlus'}
+CMDs[#CMDs + 1] = {NAME = 'chillzdex / cdex', DESC = 'Opens DexPlusPlus by Chillz'}
 CMDs[#CMDs + 1] = {NAME = 'moondex / mdex', DESC = 'Opens DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens Cobalt to intercept incoming and outgoing network traffic'}
 CMDs[#CMDs + 1] = {NAME = 'simplespy / sspy', DESC = 'Opens Simple Spy V3 to intercept remote calls from the client to the server'}
@@ -4514,8 +4515,8 @@ CMDs[#CMDs + 1] = {NAME = 'togglekeepiy', DESC = 'Toggles keepiy'}
 CMDs[#CMDs + 1] = {NAME = 'removeads / adblock', DESC = 'Automatically removes ad billboards'}
 CMDs[#CMDs + 1] = {NAME = 'savegame / saveplace', DESC = 'Uses saveinstance to save the game'}
 CMDs[#CMDs + 1] = {NAME = 'clearerror', DESC = 'Clears the annoying box and blur when a game kicks you'}
-CMDs[#CMDs + 1] = {NAME = 'antigameplaypaused', DESC = 'Clears the annoying box shown when a game is loading assets due to network lag'}
-CMDs[#CMDs + 1] = {NAME = 'unantigameplaypaused', DESC = 'Disables antigameplaypaused'}
+CMDs[#CMDs + 1] = {NAME = 'antigameplaypaused / antigppaused', DESC = 'Clears the annoying box shown when a game is loading assets due to network lag'}
+CMDs[#CMDs + 1] = {NAME = 'unantigameplaypaused / unantigppaused', DESC = 'Disables antigameplaypaused'}
 CMDs[#CMDs + 1] = {NAME = 'clientantikick / antikick (CLIENT)', DESC = 'Prevents localscripts from kicking you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantiteleport / antiteleport (CLIENT)', DESC = 'Prevents localscripts from teleporting you'}
 CMDs[#CMDs + 1] = {NAME = 'allowrejoin / allowrj (CLIENT)', DESC = 'Toggles if antiteleport allows you to rejoin or not'}
@@ -7903,7 +7904,7 @@ addcmd("clearerror", {"clearerrors"}, function(args, speaker)
     GuiService:ClearError()
 end)
 
-addcmd("antigameplaypaused", {}, function(args, speaker)
+addcmd("antigameplaypaused", {"antigppaused"}, function(args, speaker)
     pcall(function() networkPaused:Disconnect() end)
     networkPaused = COREGUI.RobloxGui.ChildAdded:Connect(function(obj)
         if obj.Name == "CoreScripts/NetworkPause" then
@@ -7913,7 +7914,7 @@ addcmd("antigameplaypaused", {}, function(args, speaker)
     COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
 end)
 
-addcmd("unantigameplaypaused", {}, function(args, speaker)
+addcmd("unantigameplaypaused", {"unantigppaused"}, function(args, speaker)
     networkPaused:Disconnect()
 end)
 
@@ -10572,6 +10573,10 @@ addcmd('oldconsole',{},function(args, speaker)
 	notify('Console','Press F9 to open the console')
 end)
 
+addcmd("chillzdex", {"cdex"}, function(args, speaker)
+    notify("Loading", "Hold on a sec")
+    loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
+end)
 addcmd("explorer", {"dex"}, function(args, speaker)
     notify("Loading", "Hold on a sec")
     loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
