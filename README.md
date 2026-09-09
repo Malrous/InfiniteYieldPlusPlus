@@ -7,7 +7,7 @@ Also a BetterIY remaster.
 
 Paste this into your executor's code editor
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+loadstring(game:HttpGet("https://github.com/Malrous/InfiniteYieldPlusPlus/raw/refs/heads/master/source"))()
 ```
 
  - Currently 400 commands
