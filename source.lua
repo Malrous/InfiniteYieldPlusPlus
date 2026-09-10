@@ -98,10 +98,17 @@ PlayerGui = cloneref(Players.LocalPlayer:FindFirstChildWhichIsA("PlayerGui"))
 COREGUI = Services.CoreGui or PlayerGui
 IYMouse = cloneref(Players.LocalPlayer:GetMouse())
 PlaceId, JobId = game.PlaceId, game.JobId
-xpcall(function()
-	IsOnMobile = table.find({Enum.Platform.Android, Enum.Platform.IOS}, UserInputService:GetPlatform())
-end, function()
-	IsOnMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+
+pcall(function()
+	if not getgenv().IYPP_DEVICE and typeof(getgenv().IYPP_DEVICE) ~= "EnumItem" then
+	    getgenv().IYPP_DEVICE = UserInputService:GetPlatform() -- used for ;setdevice
+	end
+end)
+
+pcall(function()
+	IsOnMobile = table.find({Enum.Platform.Android, Enum.Platform.IOS}, getgenv().IYPP_DEVICE)
+--end, function()
+	--IsOnMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled   unneeded because of touchscreen pcs
 end)
 isLegacyChat = TextChatService.ChatVersion == Enum.ChatVersion.LegacyChatService
 --[[rcdEnabled = select(2, pcall(function()
@@ -154,7 +161,7 @@ if makefolder and isfolder and writefile and isfile then
 	end)
 end
 
-currentVersion = "6.4.2"
+currentVersion = "1.2"
 
 ScaledHolder = Instance.new("Frame")
 Scale = Instance.new("UIScale")
@@ -358,7 +365,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Infinite Yield FE v" .. currentVersion
+Title.Text = "IYPlusPlus v" .. currentVersion
 
 do
 	local emoji = ({
@@ -4908,7 +4915,15 @@ CMDs[#CMDs + 1] = {NAME = 'addplugin / plugin [name]', DESC = 'Add a plugin via 
 CMDs[#CMDs + 1] = {NAME = 'removeplugin / deleteplugin [name]', DESC = 'Remove a plugin via command'}
 CMDs[#CMDs + 1] = {NAME = 'reloadplugin [name]', DESC = 'Reloads a plugin'}
 CMDs[#CMDs + 1] = {NAME = 'addallplugins / loadallplugins', DESC = 'Adds all available plugins from the workspace folder'}
--- task.wait()
+-- IYPlusPlus commands
+CMDs[#CMDs + 1] = {NAME = 'infinitestore / infstore', DESC = 'Opens the discontinued Infinite Store'}
+CMDs[#CMDs + 1] = {NAME = 'setplatform / spoofplatform [platform]', DESC = 'Spoofs your platform that scripts can detect (ex. Android)'}
+CMDs[#CMDs + 1] = {NAME = 'directfling / dfling [player]', DESC = 'Directly flings other people without getting close to them'}
+CMDs[#CMDs + 1] = {NAME = 'prootfling / physicsrootfling [player]', DESC = 'Instantly flings other people using PhysicsRepRootPart'}
+CMDs[#CMDs + 1] = {NAME = 'addallplugins / loadallplugins', DESC = 'Adds all available plugins from the workspace folder'}
+CMDs[#CMDs + 1] = {NAME = 'telekinesis / tel', DESC = 'Give you a tool able to control NetworkOwned parts. (made by Toon)'}
+CMDs[#CMDs + 1] = {NAME = 'killiy / closeiy', DESC = 'Closes the script. (Rerun to make it appear again)'}
+CMDs[#CMDs + 1] = {NAME = 'blockyavatar (CLIENT)', DESC = 'Makes your character blocky (client-sided)'}
 
 for i = 1, #CMDs do
 	local newcmd = Example:Clone()
