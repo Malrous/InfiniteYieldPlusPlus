@@ -1,6 +1,3 @@
--- non-print unc test
--- returns the value instead of printing
-
 local passes, fails, undefined = 0, 0, 0
 local running = 0
 
@@ -21,7 +18,6 @@ local function test(name, aliases, callback)
 
 	task.spawn(function()
 		if not callback then
-        task.spawn(function() return end)
 		elseif not getGlobal(name) then
 			fails += 1
 		else
@@ -44,7 +40,6 @@ local function test(name, aliases, callback)
 	
 		if #undefinedAliases > 0 then
 			undefined += 1
-			task.spawn(function() return end)
 		end
 
 		running -= 1
@@ -52,11 +47,24 @@ local function test(name, aliases, callback)
 end
 
 -- Header and summary
+
+print("\n")
+
+print("UNC Environment Check")
+print("✅ - Pass, ⛔ - Fail, ⏺️ - No test, ⚠️ - Missing aliases\n")
+
 task.defer(function()
 	repeat task.wait() until running == 0
 
 	local rate = math.round(passes / (passes + fails) * 100)
 	local outOf = passes .. " out of " .. (passes + fails)
+
+	print("\n")
+
+	print("UNC Summary")
+	print("✅ Tested with a " .. rate .. "% success rate (" .. outOf .. ")")
+	print("⛔ " .. fails .. " tests failed")
+	print("⚠️ " .. undefined .. " globals are missing aliases")
 end)
 
 -- Cache
@@ -856,4 +864,3 @@ test("WebSocket.connect", {}, function()
 	end
 	ws:Close()
 end)
-return rate
